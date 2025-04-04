@@ -5,6 +5,7 @@ import CryptoHeatMap from '@/components/CryptoHeatMap';
 import FearAndGreedIndex from '@/components/FearAndGreedIndex';
 import MarketStats from '@/components/MarketStats';
 import TopMovers from '@/components/TopMovers';
+import CryptoNews from '@/components/CryptoNews';
 
 const Index = () => {
   return (
@@ -23,7 +24,14 @@ const Index = () => {
         
         <MarketStats />
         
-        <TopMovers />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2">
+            <CryptoNews />
+          </div>
+          <div>
+            <TopMovers />
+          </div>
+        </div>
       </main>
       
       <footer className="bg-terminal-black text-terminal-muted text-xs px-4 py-2 text-center">
