@@ -29,13 +29,18 @@ export default {
 					dark: "#1A1F2C",
 					darker: "#141822",
 					black: "#0C0E14",
-					accent: "#0EA5E9",
+					accent: "#9b87f5",
 					green: "#4ADE80",
 					red: "#F43F5E",
 					yellow: "#FACC15",
 					orange: "#FB923C",
 					text: "#E2E8F0",
 					muted: "#94A3B8",
+					purple: {
+						light: "#D6BCFA",
+						DEFAULT: "#9b87f5",
+						dark: "#7E69AB",
+					},
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -104,12 +109,20 @@ export default {
 				pulse: {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.5' },
+				},
+				'bloom-float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-5px)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'bloom-float': 'bloom-float 3s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'bloom-gradient': 'linear-gradient(135deg, rgba(214, 188, 250, 0.15) 0%, rgba(155, 135, 245, 0.2) 100%)',
 			}
 		}
 	},

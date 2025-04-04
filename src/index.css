@@ -35,7 +35,7 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
     
-    --radius: 0.25rem;
+    --radius: 0.5rem;
   }
 }
 
@@ -59,22 +59,22 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #0EA5E9;
+    background: #9b87f5;
     border-radius: 3px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #38BDF8;
+    background: #D6BCFA;
   }
 }
 
 @layer components {
   .terminal-panel {
-    @apply bg-terminal-darker rounded border border-terminal-black/50 shadow-lg overflow-hidden;
+    @apply bg-terminal-darker rounded-xl border border-terminal-purple/20 shadow-lg overflow-hidden backdrop-blur-sm;
   }
   
   .terminal-header {
-    @apply text-xs font-semibold uppercase tracking-wider text-terminal-muted bg-terminal-black px-3 py-2 flex items-center justify-between border-b border-terminal-black/80;
+    @apply text-xs font-semibold uppercase tracking-wider text-terminal-muted bg-terminal-black/70 px-3 py-2 flex items-center justify-between border-b border-terminal-purple/20;
   }
   
   .positive-value {
@@ -87,6 +87,23 @@
   
   .neutral-value {
     @apply text-terminal-muted;
+  }
+
+  .bloom-card {
+    @apply bg-terminal-darker border border-terminal-purple/20 rounded-xl overflow-hidden transition-all duration-200 hover:border-terminal-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.15)];
+  }
+  
+  .bloom-glow {
+    @apply relative;
+  }
+  
+  .bloom-glow::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl bg-gradient-to-br from-terminal-purple/5 to-terminal-purple-light/5 opacity-0 transition-opacity duration-200;
+  }
+  
+  .bloom-glow:hover::after {
+    @apply opacity-100;
   }
 }
 
