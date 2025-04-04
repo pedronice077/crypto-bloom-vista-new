@@ -1,12 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import Header from '@/components/Header';
+import CryptoHeatMap from '@/components/CryptoHeatMap';
+import FearAndGreedIndex from '@/components/FearAndGreedIndex';
+import MarketStats from '@/components/MarketStats';
+import TopMovers from '@/components/TopMovers';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col bg-terminal-dark">
+      <Header />
+      
+      <main className="flex-1 p-3 md:p-4 space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2">
+            <CryptoHeatMap />
+          </div>
+          <div>
+            <FearAndGreedIndex />
+          </div>
+        </div>
+        
+        <MarketStats />
+        
+        <TopMovers />
+      </main>
+      
+      <footer className="bg-terminal-black text-terminal-muted text-xs px-4 py-2 text-center">
+        Crypto Bloom Vista • Market data for informational purposes only
+      </footer>
     </div>
   );
 };
