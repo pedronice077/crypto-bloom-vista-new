@@ -37,36 +37,6 @@
     
     --radius: 0.5rem;
   }
-
-  .light-mode {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-  }
 }
 
 @layer base {
@@ -75,12 +45,8 @@
   }
 
   body {
-    @apply bg-terminal-dark text-terminal-text font-mono antialiased m-0 p-0 transition-colors duration-200;
+    @apply bg-terminal-dark text-terminal-text font-mono antialiased m-0 p-0;
     overflow-x: hidden;
-  }
-  
-  .light-mode body {
-    @apply bg-white text-zinc-800;
   }
   
   ::-webkit-scrollbar {
@@ -89,37 +55,26 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-terminal-dark;
-  }
-  
-  .light-mode ::-webkit-scrollbar-track {
-    @apply bg-zinc-100;
+    background: #1A1F2C;
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-terminal-purple rounded-sm;
+    background: #9b87f5;
+    border-radius: 3px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-terminal-purple-light;
+    background: #D6BCFA;
   }
 }
 
 @layer components {
   .terminal-panel {
-    @apply bg-terminal-darker rounded-xl border border-terminal-purple/20 shadow-lg overflow-hidden backdrop-blur-sm transition-all duration-200;
-  }
-  
-  .light-mode .terminal-panel {
-    @apply bg-white border-terminal-purple/30 shadow-md;
+    @apply bg-terminal-darker rounded-xl border border-terminal-purple/20 shadow-lg overflow-hidden backdrop-blur-sm;
   }
   
   .terminal-header {
-    @apply text-xs font-semibold uppercase tracking-wider text-terminal-muted bg-terminal-black/70 px-3 py-2 flex items-center justify-between border-b border-terminal-purple/20 transition-all duration-200;
-  }
-  
-  .light-mode .terminal-header {
-    @apply bg-zinc-100/90 text-zinc-600 border-terminal-purple/10;
+    @apply text-xs font-semibold uppercase tracking-wider text-terminal-muted bg-terminal-black/70 px-3 py-2 flex items-center justify-between border-b border-terminal-purple/20;
   }
   
   .positive-value {
@@ -138,10 +93,6 @@
     @apply bg-terminal-darker border border-terminal-purple/20 rounded-xl overflow-hidden transition-all duration-200 hover:border-terminal-purple/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.15)];
   }
   
-  .light-mode .bloom-card {
-    @apply bg-white border-terminal-purple/30 shadow;
-  }
-  
   .bloom-glow {
     @apply relative;
   }
@@ -154,14 +105,6 @@
   .bloom-glow:hover::after {
     @apply opacity-100;
   }
-
-  .lazy-loading {
-    @apply opacity-0 transition-opacity duration-300;
-  }
-
-  .lazy-loaded {
-    @apply opacity-100;
-  }
 }
 
 #root {
@@ -169,37 +112,4 @@
   min-height: 100vh;
   margin: 0;
   padding: 0;
-}
-
-/* Modify Index.tsx page styles */
-.light-mode .bg-terminal-dark {
-  @apply bg-zinc-50;
-}
-
-.light-mode .bg-terminal-black {
-  @apply bg-white;
-}
-
-.light-mode .text-terminal-purple {
-  @apply text-terminal-purple-dark;
-}
-
-.light-mode .bg-[radial-gradient\(ellipse_at_top_right\,rgba\(155\,135\,245\,0\.15\)\,transparent_50\%\)\,radial-gradient\(ellipse_at_bottom_left\,rgba\(214\,188\,250\,0\.1\)\,transparent_50\%\)] {
-  @apply bg-[radial-gradient(ellipse_at_top_right,rgba(155,135,245,0.1),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(214,188,250,0.05),transparent_50%)];
-}
-
-.light-mode .border-terminal-purple\/20 {
-  @apply border-terminal-purple/30;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
